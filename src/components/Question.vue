@@ -3,7 +3,11 @@
     <span>{{ question.text }}</span>
 
     <ul class="answers">
-      <li v-for="(answer, i) in question.answers" :key="i">
+      <li
+        v-for="(answer, i) in question.answers"
+        :key="i"
+        @click="$emit('answered', answer.correct)"
+      >
         <span class="number">{{ i + 1 }}</span>
         <span class="text">{{ answer.text }}</span>
       </li>
@@ -30,7 +34,6 @@ export default {
   width: 70%;
   border-radius: 20px;
   font-size: 2.5rem;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -49,7 +52,7 @@ ul.answers {
   background-color: #89c454;
   border-radius: 8px;
   width: 40%;
-
+  cursor: pointer;
   display: flex;
 }
 

@@ -2,8 +2,12 @@
   <div id="app">
     <h1>Super Quiz</h1>
 
-    <Question v-if="questionMode" :question="questions[currentQuestion]" />
-    <Result v-else :result="result" />
+    <Question
+      v-if="questionMode"
+      :question="questions[currentQuestion]"
+      @answered="showResult"
+    />
+    <Result v-else :result="result" @confirmed="nextQuestion" />
   </div>
 </template>
 
@@ -22,6 +26,18 @@ export default {
       currentQuestion: 0,
     };
   },
+  methods: {
+    showResult(result) {
+      this.result = result;
+      this.questionMode = false;
+    },
+    nextQuestion() {
+      let random = Math.random() * this.questions.length;
+      this.currentQuestion = parseInt(random);
+
+      this.questionMode = true;
+    },
+  },
 };
 </script>
 
@@ -38,7 +54,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
