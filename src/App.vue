@@ -1,15 +1,33 @@
 <template>
   <div id="app">
     <h1>Super Quiz</h1>
+
+    <Question v-if="questionMode" :question="questions[currentQuestion]" />
+    <Result v-else :result="result" />
   </div>
 </template>
 
 <script>
-export default {};
+import Questions from "./util/questions";
+import Question from "./components/Question.vue";
+import Result from "./components/Result.vue";
+
+export default {
+  components: { Question, Result },
+  data() {
+    return {
+      result: false,
+      questionMode: true,
+      questions: Questions,
+      currentQuestion: 0,
+    };
+  },
+};
 </script>
 
 <style>
 body {
+  overflow: hidden;
   background: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
   font-family: "Oswald", sans-serif;
   color: #fff;
