@@ -45,7 +45,6 @@ export default {
 
 <style>
 body {
-  overflow: hidden;
   background: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
   font-family: "Oswald", sans-serif;
   color: #fff;
@@ -90,5 +89,41 @@ body {
 
 .flip-leave-active {
   animation: flip-out 0.3s ease;
+}
+
+@media screen and (max-width: 600px) {
+  .question {
+    width: 100%;
+  }
+
+  .question span {
+    font-size: 2rem;
+  }
+
+  span.text {
+    font-size: 1.5rem;
+  }
+
+  ul.answers {
+    display: block;
+    font-size: 1.5rem;
+  }
+
+  .answers span.number {
+    padding: 0 10px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		font-size: 1.4rem;
+  }
+
+  .answers li {
+		position: relative;
+    display: inline-block !important;
+    width: 90%;
+    margin: 10px auto !important;
+    width: -webkit-fill-available;
+  }
 }
 </style>
