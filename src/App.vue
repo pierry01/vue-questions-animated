@@ -94,10 +94,13 @@ body {
 @media screen and (max-width: 600px) {
   .question {
     width: 100%;
+		margin-bottom: 30px;
   }
 
   .question span {
     font-size: 2rem;
+    margin: 0 auto;
+    padding: 0 10px;
   }
 
   span.text {
@@ -111,19 +114,30 @@ body {
 
   .answers span.number {
     padding: 0 10px;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		top: 0;
-		font-size: 1.4rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    font-size: 1.4rem;
   }
 
   .answers li {
-		position: relative;
+    position: relative;
     display: inline-block !important;
     width: 90%;
-    margin: 10px auto !important;
-    width: -webkit-fill-available;
+    margin: 6px auto !important;
   }
+
+	.result {
+		height: 250px;
+	}
+
+	.result span {
+		font-size: 2rem;
+	}
+
+	.result button {
+		font-size: 1rem;
+	}
 }
 </style>
